@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface Message {
   id: number;
   text: string;

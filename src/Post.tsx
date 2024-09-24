@@ -1,4 +1,3 @@
-import React from 'react';
 import { Heart, MessageSquare } from 'lucide-react'; // Importing icons
 
 const Post = () => {
