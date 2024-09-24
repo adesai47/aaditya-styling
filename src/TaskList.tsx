@@ -16,7 +16,12 @@ const TaskList = () => {
   ]);
 
   const handleCheckboxChange = (taskId: number) => {
-    setTasks(tasks.map(task => task.id === taskId ? { ...task, isComplete: !task.isComplete } : task));
+    const updatedTasks = tasks.map(task =>
+      task.id === taskId ? { ...task, isComplete: !task.isComplete } : task
+    );
+
+    const sortedTasks = [...updatedTasks].sort((a, b) => (a.isComplete === b.isComplete ? 0 : a.isComplete ? -1 : 1));
+    setTasks(sortedTasks);
   };
 
   return (
@@ -44,10 +49,11 @@ const TaskList = () => {
                 height: '24px',
                 width: '24px',
                 borderRadius: '4px',
-                border: task.isComplete ? '2px solid #359845' : '2px solid #d1d5db',
+                border: '2px solid #d1d5db',
                 backgroundColor: task.isComplete ? '#359845' : '#ffffff',
                 appearance: 'none',
                 cursor: 'pointer',
+                display: 'block', // Ensures consistency
               }}
               checked={task.isComplete}
               onChange={() => handleCheckboxChange(task.id)}
