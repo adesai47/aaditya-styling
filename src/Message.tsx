@@ -67,4 +67,4 @@ const Message = () => {
   );
 };
 
-export default Message;
+export default Message; //for messages
